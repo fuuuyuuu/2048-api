@@ -11,10 +11,19 @@ A 2048 game api for training supervised learning (imitation learning) or reinfor
 * [`static/`](static/): frontend assets (based on Vue.js) for web app.
 * [`webapp.py`](webapp.py): run the web app (backend) demo.
 * [`evaluate.py`](evaluate.py): evaluate your self-defined agent.
-
+* [`RNN_training.py`](RNN_training.py): my model defined with RNN  
+* [`EE369_evaluation.log`](EE369_evaluation.log): result of my model
+* [`EE369_fingerprint.json`](EE369_fingerprint.json): my finger
 # Requirements
 * code only tested on linux system (ubuntu 16.04)
 * Python 3 (Anaconda 3.6.3 specifically) with numpy and flask
+* download my model @ https://pan.baidu.com/s/1cRPhYE7YXihDpJPo2jh3Jg
+
+# To evaluate my models
+```bash
+download and extract my models at workspace
+python evaluate.py
+```
 
 # To define your own agents
 ```python
@@ -44,8 +53,8 @@ make
 # To run the web app
 ```bash
 python webapp.py
+web app is not used in my own agent
 ```
-![demo](preview2048.gif)
 
 # LICENSE
 The code is under Apache-2.0 License.

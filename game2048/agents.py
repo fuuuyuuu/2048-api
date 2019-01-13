@@ -202,7 +202,7 @@ class RNN_A(Agent):
 
 
         if (self.game.score < 512):
-            clf1 = torch.load('rnn_model_b8.pkl', map_location='cpu')
+            clf1 = torch.load('rnn_model_b6.pkl', map_location='cpu')
             self.search_func = clf1
             direction1 = self.search_func(board)
             direction1 = direction1.data.max(1)[1]

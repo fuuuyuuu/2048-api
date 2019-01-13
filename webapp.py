@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-
+from RNN_training import RNN
 
 def get_flask_app(game, agent):
     app = Flask(__name__)
@@ -11,7 +11,7 @@ def get_flask_app(game, agent):
     @app.route("/board", methods=['GET', 'POST'])
     def get_board():
         direction = -1
-        control = "USER"
+        control = "myAgent"
         if request.method == "POST":
             direction = request.json
             if direction == -1:
@@ -31,14 +31,14 @@ if __name__ == "__main__":
     GAME_SIZE = 4
     SCORE_TO_WIN = 2048
     APP_PORT = 5005
-    APP_HOST = "0.0.0.0"
+    APP_HOST = "localhost"
 
     from game2048.game import Game
     game = Game(size=GAME_SIZE, score_to_win=SCORE_TO_WIN)
 
     try:
-        from game2048.agents import ExpectiMaxAgent
-        agent = ExpectiMaxAgent(game=game)
+        from game2048.agents import RNN_A
+        agent = RNN_A(game=game)
     except:
         from game2048.agents import RandomAgent
         print("WARNING: Please compile the ExpectiMaxAgent first following the README.")

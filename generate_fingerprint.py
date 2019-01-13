@@ -1,6 +1,7 @@
 import json
 import numpy as np
 from game2048.game import Game
+from RNN_training import RNN
 
 
 def generate_fingerprint(AgentClass, **kwargs):
@@ -24,7 +25,7 @@ if __name__ == '__main__':
 
     '''====================
     Use your own agent here.'''
-    from game2048.agents import ExpectiMaxAgent as TestAgent
+    from game2048.agents import RNN_A as TestAgent
     '''===================='''
 
     fingerprint = generate_fingerprint(TestAgent)

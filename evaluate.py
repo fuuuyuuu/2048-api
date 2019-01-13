@@ -1,5 +1,6 @@
 from game2048.game import Game
 from game2048.displays import Display
+from RNN_training import RNN
 
 
 def single_run(size, score_to_win, AgentClass, **kwargs):
@@ -12,11 +13,16 @@ def single_run(size, score_to_win, AgentClass, **kwargs):
 if __name__ == '__main__':
     GAME_SIZE = 4
     SCORE_TO_WIN = 2048
-    N_TESTS = 10
+    N_TESTS = 50
 
     '''====================
     Use your own agent here.'''
-    from game2048.agents import ExpectiMaxAgent as TestAgent
+    # from game2048.agents import RandomAgent as TestAgent
+    # from game2048.agents import ExpectiMaxAgent as TestAgent
+    # from game2048.agents import LDA as TestAgent
+    # from game2048.agents import QDA as TestAgent
+    # from game2048.agents import KNN as TestAgent
+    from game2048.agents import RNN_A as TestAgent
     '''===================='''
 
     scores = []
@@ -25,4 +31,5 @@ if __name__ == '__main__':
                            AgentClass=TestAgent)
         scores.append(score)
 
+    print(scores)
     print("Average scores: @%s times" % N_TESTS, sum(scores) / len(scores))
